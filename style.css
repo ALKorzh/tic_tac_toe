@@ -1,0 +1,24 @@
+#row {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+  max-width: 80%;
+  margin-bottom: 2%;
+}
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100%;
+  font-weight: bold;
+  min-width: 50px;
+  min-height: 50px;
+  width: 5%;
+  height: 5%;
+  background-color: aqua;
+  transition: 0.3s;
+  border-radius: 5%;
+}
+.cell:hover {
+  background-color: rgb(40, 167, 167);
+}
