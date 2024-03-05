@@ -1,12 +1,12 @@
 #row {
   display: flex;
-  justify-content: center;
-  gap: 2%;
-  max-width: 80%;
-  margin-bottom: 2%;
+  gap: 3%;
+  max-width: 20%;
+  margin-bottom: 0.6%;
 }
 .cell {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   font-size: 100%;
@@ -15,10 +15,46 @@
   min-height: 50px;
   width: 5%;
   height: 5%;
-  background-color: aqua;
+  background-color: rgb(183, 0, 255);
   transition: 0.3s;
   border-radius: 5%;
 }
 .cell:hover {
-  background-color: rgb(40, 167, 167);
+  background-color: rgb(72, 2, 100);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgb(67, 13, 88);
+  min-height: 300px;
+}
+.input-container {
+  margin: 2% 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 20%;
+}
+#table {
+  margin-bottom: 5%;
+}
+.game-space {
+  display: flex;
+  gap: 5%;
+}
+.output {
+  background-color: rgb(72, 2, 100);
+  border-radius: 2%;
+  margin-bottom: 5%;
+  overflow-y: auto;
+  max-height: 1%;
+  width: 80%;
+}
+.message {
+  margin: 2% 4%;
+}
+p {
+  font-weight: bold;
+  color: white;
 }

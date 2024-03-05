@@ -7,10 +7,17 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- <input id="input-numbers-of-players" type="number" /> -->
-    <input id="input-field-size" type="number" min="1" />
-    <button id="set-field-size">Set</button>
-    <div id="table"></div>
-    <script src="./script.js"></script>
+    <div class="container">
+      <div class="input-container">
+        <input id="input-field-size" type="number" min="1" />
+        <button id="set-field-size">Set</button>
+      </div>
+      <div class="game-space">
+        <div class="output"></div>
+        <div id="table"></div>
+      </div>
+
+      <script src="./script.js"></script>
+    </div>
   </body>
 </html>
