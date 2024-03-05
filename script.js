@@ -62,7 +62,7 @@ function updateCellAndMatrix() {
       return null
     }
   }
-  respondOnEvent()
+  showMessage()
 }
 
 function transpose(matrix) {
@@ -103,7 +103,7 @@ function isWinningBoard() {
   )
 }
 
-function respondOnEvent() {
+function showMessage() {
   output.innerHTML += "<div class='message'></div>"
   let messages = document.querySelectorAll(".message")
   messages[messages.length - 1].innerHTML += `<p>Ход ${
@@ -142,5 +142,5 @@ button.addEventListener("click", () => {
   button.disabled = true
   input.disabled = true
   render()
-  respondOnEvent()
+  showMessage()
 })
