@@ -51,9 +51,51 @@ function fillCell() {
       }
     })
   })
+  console.log(isWinField(matrix))
   console.log(matrix)
+  if (isWinField(matrix)) {
+    document.querySelectorAll(".cell").forEach((cell) => {
+      cell.removeEventListener("click", fillCell)
+    })
+  }
 }
-
+function transpose(matrix) {
+  return matrix[0].map((col, i) => {
+    return matrix.map((row) => {
+      return row[i]
+    })
+  })
+}
+function findMainSecondaryDiagonals(matrix) {
+  const mainDiagonal = matrix.map((row, i) => row[i])
+  const secondaryDiagonal = matrix.map((row, i) => row[row.length - i - 1])
+  return (diagonals = [mainDiagonal, secondaryDiagonal])
+}
+function isWinRow(matrix, fieldSize) {
+  let flag = false
+  matrix.forEach((row) => {
+    console.log(row)
+    let rowSum = row.reduce((sum, current) => {
+      return sum + current
+    })
+    console.log(rowSum)
+    if (
+      rowSum ==
+      playersNumbersOfSymbols[moveCounter % playersNumbersOfSymbols.length] *
+        fieldSize
+    ) {
+      flag = true
+    }
+  })
+  return flag
+}
+function isWinField() {
+  return (
+    isWinRow(matrix, fieldSize) ||
+    isWinRow(transpose(matrix), fieldSize) ||
+    isWinRow(findMainSecondaryDiagonals(matrix), fieldSize)
+  )
+}
 button.addEventListener("click", () => {
   fieldSize = +input.value
   console.log(fieldSize)
