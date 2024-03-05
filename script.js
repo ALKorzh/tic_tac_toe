@@ -14,7 +14,6 @@ function createMatrix(fieldSize) {
     { length: fieldSize },
     (el) => (el = Array.from({ length: fieldSize }, (i) => (i = 0)))
   )
-  console.log(matrix)
 }
 
 function render() {
@@ -22,7 +21,6 @@ function render() {
   let idCounter = 1
   matrix.forEach((row) => {
     matrixEl.innerHTML += "<div id='row'></div>"
-    console.log(row)
     row.forEach(() => {
       matrixEl.lastChild.innerHTML += `<div class='cell' id='cell-${idCounter}'></div>`
       idCounter++
@@ -51,8 +49,6 @@ function updateCellAndMatrix() {
       }
     })
   })
-  console.log(isWinningBoard(matrix))
-  console.log(matrix)
 
   if (isWinningBoard(matrix)) {
     document.querySelectorAll(".cell").forEach((cell) => {
@@ -86,11 +82,9 @@ function findMainSecondaryDiagonals(matrix) {
 function isWinRow(matrix, fieldSize) {
   let flag = false
   matrix.forEach((row) => {
-    console.log(row)
     let rowSum = row.reduce((sum, current) => {
       return sum + current
     })
-    console.log(rowSum)
     if (
       rowSum ==
       playerSymbolValues[moveCounter % playerSymbolValues.length] * fieldSize
@@ -108,6 +102,7 @@ function isWinningBoard() {
     isWinRow(findMainSecondaryDiagonals(matrix), fieldSize)
   )
 }
+
 function respondOnEvent() {
   output.innerHTML += "<div class='message'></div>"
   let messages = document.querySelectorAll(".message")
@@ -115,8 +110,8 @@ function respondOnEvent() {
     moveCounter + 1
   } - ходит ${playersSymbols[(moveCounter + 1) % playersSymbols.length]}</p>`
   output.style.height = `${document.querySelector("#table").offsetHeight}px`
-  console.log(document.querySelector("#table").offsetHeight)
 }
+
 function showWinMessage() {
   let messages = document.querySelectorAll(".message")
   messages[messages.length - 1].innerHTML += `<p>Победил ${
@@ -124,12 +119,14 @@ function showWinMessage() {
   }. На ${moveCounter} ходу</p>`
   messages[messages.length - 1].lastChild.style.color = "green"
 }
+
 function showDrawMessage() {
   let messages = document.querySelectorAll(".message")
   messages[
     messages.length - 1
   ].innerHTML += `<p>Ничья. На ${moveCounter} ходу</p>`
 }
+
 function isFilledField(matrix) {
   let flag = false
   matrix.forEach((row) => {
@@ -142,7 +139,6 @@ function isFilledField(matrix) {
 
 button.addEventListener("click", () => {
   fieldSize = +input.value
-  console.log(fieldSize)
   button.disabled = true
   input.disabled = true
   render()
