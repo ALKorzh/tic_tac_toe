@@ -128,13 +128,14 @@ function showDrawMessage() {
 }
 
 function isFilledField(matrix) {
-  let flag = false
+  let flag = []
   matrix.forEach((row) => {
-    if (!row.includes(0)) {
-      flag = true
-    }
+    flag.push(row.includes(0))
   })
-  return flag
+  let result = flag.reduce((sum, current) => {
+    return sum || current
+  })
+  return !result
 }
 
 button.addEventListener("click", () => {
