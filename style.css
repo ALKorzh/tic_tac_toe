@@ -50,7 +50,7 @@
   overflow-y: auto;
   max-height: 1%;
   width: 100%;
-  min-width: 300px;
+  min-width: 150px;
 }
 .message {
   font-size: 200%;
