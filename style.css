@@ -49,9 +49,11 @@
   margin-bottom: 5%;
   overflow-y: auto;
   max-height: 1%;
-  width: 80%;
+  width: 100%;
+  min-width: 300px;
 }
 .message {
+  font-size: 200%;
   margin: 2% 4%;
 }
 p {
